@@ -1,4 +1,6 @@
 %输入n X Y dY 输出各个hi Hi 返回拟合函数
+%不适用于一般形式 只能是每个点都知道导数时才可以
+
 function H_x = HermiteSpline(n, X, Y, dY)
     syms x lup H_x;
     format short
@@ -21,7 +23,7 @@ function H_x = HermiteSpline(n, X, Y, dY)
         pretty(expand(vpa(l_i)))
         %expand(vpa(l_i))
         fprintf("h_%d(x) = \n ",i-1);
-        h_i = (1-2 *( (x-X(i)) * diff(l_i) ) ) * l_i * l_i;
+        h_i = (1-2 *( (x-X(i)) * subs(diff(l_i),X(i)) ) ) * l_i * l_i;
         pretty(expand(vpa(h_i)))
         fprintf("H_%d(x) = \n ",i-1);
         H_i = (x-X(i)) * l_i * l_i;
