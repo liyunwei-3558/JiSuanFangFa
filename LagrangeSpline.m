@@ -19,7 +19,7 @@ function L = LagrangeSpline(n, X, Y)
             ldown = ldown * (X(i)-X(j));
         end
         l_i = nowlup/ldown;
-        fprintf('L%d = \n',i);
+        fprintf('L%d = \n',i-1);
         pretty(expand(vpa(l_i)))
         %expand(vpa(l_i))
         L = L+l_i*Y(i);

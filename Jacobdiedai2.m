@@ -1,3 +1,5 @@
+%输入 A b n x0（种子） epsilon（迭代结果不变标准） N（最大迭代次数）
+%输出每一次迭代结果  返回最后一次迭代结果
 function y = Jacobdiedai2(A,b,n,x0,eps,N)
     cnt = 1;
     x_last = x0;
